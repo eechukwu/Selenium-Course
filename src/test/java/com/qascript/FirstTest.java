@@ -2,10 +2,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-ChromeOptions options = new ChromeOptions();
-options.addArguments("--headless");
-options.addArguments("--no-sandbox");
-options.addArguments("--disable-dev-shm-usage");
+
 
 
 public class FirstTest {
@@ -17,6 +14,10 @@ public class FirstTest {
 
         // Create a new instance of the Chrome driver
         WebDriver driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
 
         // Navigate to the specified URL
         driver.get("https://www.google.co.uk/");
