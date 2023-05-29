@@ -2,6 +2,11 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+ChromeOptions options = new ChromeOptions();
+options.addArguments("--headless");
+options.addArguments("--no-sandbox");
+options.addArguments("--disable-dev-shm-usage");
+
 
 public class FirstTest {
 
