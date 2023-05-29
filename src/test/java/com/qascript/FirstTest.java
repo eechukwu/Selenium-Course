@@ -10,7 +10,7 @@ public class FirstTest {
         WebDriver driver = new ChromeDriver();
 
         // Navigate to the specified URL
-        driver.get("https://www.example.com");
+        driver.get("https://www.google.co.uk/");
 
         // Get the page title
         String pageTitle = driver.getTitle();
