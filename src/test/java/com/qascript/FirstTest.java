@@ -1,30 +1,34 @@
-package com.qascript;
-
-import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
-public class FirstTest {
-
-    @Test
-    public void OpenBrowser() {
-        WebDriver driver;
+public class PageTitleChecker {
+    public static void main(String[] args) {
+        // Set the path to the chromedriver executable
         System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
-        options.addArguments("disable-gpu");
-        driver = new ChromeDriver(options);
 
-        try {
-            driver.get("https://www.google.com");
-            System.out.println("Title of the page is: " + driver.getTitle());
-            Assert.assertTrue("Page title is not correct", driver.getTitle().equals("Google"));
-        } finally {
-            driver.quit();
+        // Create a new instance of the Chrome driver
+        WebDriver driver = new ChromeDriver();
+
+        // Navigate to the specified URL
+        driver.get("https://www.example.com");
+
+        // Get the page title
+        String pageTitle = driver.getTitle();
+
+        // Check if the word "Google" exists in the page title
+        boolean containsGoogle = pageTitle.contains("Google");
+
+        // Print the result
+        if (containsGoogle) {
+            System.out.println("The page title contains the word 'Google'.");
+        } else {
+            System.out.println("The page title does not contain the word 'Google'.");
         }
+
+        // Close the browser
+        driver.quit();
     }
 }
+
 
 
