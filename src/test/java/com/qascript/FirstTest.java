@@ -4,8 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-
-
 public class FirstTest {
 
     @Test
@@ -13,12 +11,17 @@ public class FirstTest {
         // Set the path to the chromedriver executable
         System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 
-        // Create a new instance of the Chrome driver
-        WebDriver driver = new ChromeDriver();
+        // Configure Chrome options
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
+
+        // Set the path to the Chrome binary (modify it according to your system)
+        options.setBinary("/usr/bin/google-chrome");
+
+        // Create a new instance of the Chrome driver
+        WebDriver driver = new ChromeDriver(options);
 
         // Navigate to the specified URL
         driver.get("https://www.google.co.uk/");
@@ -36,5 +39,3 @@ public class FirstTest {
         Assert.assertTrue("Page title does not contain 'Google'", containsGoogle);
     }
 }
-
-
