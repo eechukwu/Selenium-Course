@@ -16,12 +16,10 @@ public class FirstTest {
 
         // Create ChromeOptions and specify the binary location
         ChromeOptions options = new ChromeOptions();
-        options.setBinary(System.getProperty("webdriver.chrome.bin"));
-        chrome_options = Options();
-        chrome_options.add_argument("--disable-extensions");
-        chrome_options.add_argument("--disable-gpu");
-        chrome_options.add_argument("--no-sandbox");
-        driver = webdriver.Chrome(options=chrome_options);
+        options.addArguments("--no-sandbox"); //Bypass OS security model   
+        options.addArguments("--start-maximized");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
             
         // Create a new instance of the Chrome driver with the specified options
         WebDriver driver = new ChromeDriver(options);
