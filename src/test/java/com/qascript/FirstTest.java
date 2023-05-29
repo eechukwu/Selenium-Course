@@ -11,16 +11,14 @@ public class FirstTest {
         // Set the path to the chromedriver executable
         System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 
-        // Configure Chrome options
+        // Set the path to the Google Chrome executable
+        System.setProperty("webdriver.chrome.bin", "/usr/bin/google-chrome");
+
+        // Create ChromeOptions and specify the binary location
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
+        options.setBinary(System.getProperty("webdriver.chrome.bin"));
 
-        // Set the path to the Chrome binary (modify it according to your system)
-        options.setBinary("/usr/bin/google-chrome");
-
-        // Create a new instance of the Chrome driver
+        // Create a new instance of the Chrome driver with the specified options
         WebDriver driver = new ChromeDriver(options);
 
         // Navigate to the specified URL
